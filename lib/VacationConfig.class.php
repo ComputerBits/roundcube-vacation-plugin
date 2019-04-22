@@ -16,9 +16,9 @@ class VacationConfig
 	private $currentHost = null;
 	private $iniArr,$currentArr = array();
 	private $hasError = false;
-	private $allowedOptions = array('none'=>array(),'ftp'=>array(),'sshftp'=>array(),'virtual'=>array(),'sieve'=>array(),'setuid'=>array());
+	protected $allowedOptions = array('none'=>array(),'ftp'=>array(),'sshftp'=>array(),'virtual'=>array(),'sieve'=>array(),'setuid'=>array());
 
-	public function __construct()
+	public function __construct(string $configini = 'plugins/vacation/config.ini')
 	{
 		// Allowed options in config.ini per driver
 		$this->allowedOptions['ftp'] = array('server'=>'optional','passive'=>'optional','disable_forward'=>'optional');
@@ -28,7 +28,7 @@ class VacationConfig
 		$this->allowedOptions['setuid'] = array('executable'=>'required','disable_forward'=>'optional');
 		$this->allowedOptions['sieve'] = array('server'=>'optional','disable_forward'=>'optional',
                                                         'port'=>'optional','tls'=>'optional');
-		$this->parseIni();
+		$this->parseIni($configini);
 	}
 
         public function getDefaultText()
@@ -42,9 +42,8 @@ class VacationConfig
 
         }
 	
-	private function parseIni()
+	private function parseIni(string $configini)
 	{
-		$configini = "plugins/vacation/config.ini";		
 		if (! is_readable($configini))
 		{
 			$this->hasError = $configini." is not readable";
