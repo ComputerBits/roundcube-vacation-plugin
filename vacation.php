@@ -133,7 +133,8 @@ class vacation extends rcube_plugin {
 
         // Out of office body
         $field_id = 'vacation_body';
-        $input_autoresponderbody = new html_textarea(array('name' => '_vacation_body', 'id' => $field_id, 'cols' => 88, 'rows' => 20));
+        $input_autoresponderbody = new html_textarea(array('name' => '_vacation_body', 'id' => $field_id, 'cols' => 88, 'rows' => 20, 'data-html-editor' => true, 'class' => 'mce_editor'));
+        $this->rcmail->html_editor('identity');
         $out .= sprintf("<tr><td class=\"title\"><label for=\"%s\">%s</label></td><td>%s</td></tr>\n",
                 $field_id,
                 rcube_utils::rep_specialchars_output($this->gettext('autoreplymessage')),
