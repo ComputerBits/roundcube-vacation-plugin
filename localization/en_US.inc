@@ -11,8 +11,8 @@ $labels['forwardingaddresses'] = 'Forward mail to';
 $labels['keepcopy'] = 'Keep a copy of the mail';
 $labels['mailforward'] = 'Mail Forwarding';
 $labels['outofoffice'] = 'Vacation (Out of Office) Notification';
-$labels['separate_alias'] = 'Separate each alias address by a comma';
-$labels['separate_forward'] = 'Separate each forward address by a comma';
+$labels['separate_alias'] = 'Separate each alias address with a comma';
+$labels['separate_forward'] = 'Separate each forward address with a comma';
 $labels['success_changed'] = 'Vacation settings succesfully changed';
 $labels['vacation'] = 'Vacation';
 // Button text
