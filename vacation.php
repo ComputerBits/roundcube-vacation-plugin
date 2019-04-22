@@ -16,7 +16,7 @@
 require 'lib/vacationdriver.class.php';
 require 'lib/dotforward.class.php';
 require 'lib/vacationfactory.class.php';
-require 'lib/VacationConfig.class.php';
+require 'lib/CustomVacationConfig.class.php';
 
 class vacation extends rcube_plugin {
 
@@ -82,7 +82,7 @@ class vacation extends rcube_plugin {
 
     // Parse config.ini and get configuration for current host
     private function readIniConfig() {
-        $this->vcObject = new VacationConfig();
+        $this->vcObject = new CustomVacationConfig();
         $this->vcObject->setCurrentHost($_SESSION['imap_host']);
         $config = $this->vcObject->getCurrentConfig();
 
