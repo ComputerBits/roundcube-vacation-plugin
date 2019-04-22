@@ -116,7 +116,7 @@ public function loadDefaults() {
 	final public function save() {
 		$this->enable = (NULL != rcube_utils::get_input_value('_vacation_enabled', rcube_utils::INPUT_POST));
 		$this->subject = rcube_utils::get_input_value('_vacation_subject', rcube_utils::INPUT_POST);
-		$this->body = rcube_utils::get_input_value('_vacation_body', rcube_utils::INPUT_POST);
+		$this->body = rcube_utils::get_input_value('_vacation_body', rcube_utils::INPUT_POST, $allow_html=true);
 		$this->keepcopy = (NULL != rcube_utils::get_input_value('_vacation_keepcopy', rcube_utils::INPUT_POST));
 		$this->forward = rcube_utils::get_input_value('_vacation_forward', rcube_utils::INPUT_POST);
 		$this->aliases = rcube_utils::get_input_value('_vacation_aliases', rcube_utils::INPUT_POST);
